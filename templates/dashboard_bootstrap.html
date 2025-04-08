@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Odds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Odds Alert Bot</span>
+            <span class="text-white">👤 {{ user.username }}</span>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Seus Alertas de Cotações</h2>
+
+        <table class="table table-hover table-bordered">
+            <thead class="table-secondary">
+                <tr>
+                    <th>Esporte</th>
+                    <th>Mercado</th>
+                    <th>Seleção</th>
+                    <th>Odds Mínima</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alert in alerts %}
+                <tr>
+                    <td>{{ alert.sport }}</td>
+                    <td>{{ alert.market }}</td>
+                    <td>{{ alert.selection }}</td>
+                    <td>{{ alert.min_odds }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
